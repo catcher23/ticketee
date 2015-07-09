@@ -45,7 +45,8 @@ group :development, :test do
   gem 'rspec-rails'
   
 group :test do
-    gem "capybara"
+  gem 'capybara'
+  gem 'factory_girl_rails'
   end
   
 end
