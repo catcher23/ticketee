@@ -5,11 +5,18 @@ RSpec.feature "Users can view projects" do
   before do
     login_as(user)
     assign_role!(user, :viewer, project)
-end
+  end
 
   scenario "with the project details" do
    # project = FactoryGirl.create(:project, name: "Sublime Text 3")
     visit "/"
     click_link "Sublime Text 3"
     expect(page.current_url).to eq project_url(project)
-end end
+  end 
+
+  scenario "unless they do not have permission" do
+    FactoryGirl.create(:project, name: "Hidden")
+    visit "/"
+    expect(page).not_to have_content "Hidden"
+  end
+end
