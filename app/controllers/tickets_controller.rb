@@ -22,8 +22,9 @@ class TicketsController < ApplicationController
     end
   end
   
-  def show
-    authorize @ticket, :show?
+    def show
+      authorize @ticket, :show?
+      @comment = @ticket.comments.build
   end
   
   def edit
