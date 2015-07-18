@@ -54,6 +54,7 @@ class Admin::UsersController < Admin::ApplicationController
     redirect_to admin_users_path
   end
 
+ 
 private
 def set_projects
     @projects = Project.order(:name)
